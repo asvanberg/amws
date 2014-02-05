@@ -11,7 +11,7 @@ public class Services {
     public static void main(String[] args) throws IOException {
         JAXRSServerFactoryBean serverFactory = new JAXRSServerFactoryBean();
         serverFactory.setResourceClasses(BookResource.class, PersonResource.class, LoanResource.class);
-        serverFactory.setAddress("http://localhost:8081");
+        serverFactory.setAddress("http://0.0.0.0:8081");
         serverFactory.setProvider(new JacksonJaxbJsonProvider());
 
         Server server = serverFactory.create();
