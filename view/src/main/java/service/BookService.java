@@ -2,13 +2,11 @@ package service;
 
 import domain.dto.Book;
 
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 
-public class BookService {
+public class BookService extends AbstractRemoteService {
     public Book get(long id) {
-        return ClientBuilder.newClient()
-                .target("http://localhost:8081")
+        return api()
                 .path("book")
                 .path(Long.toString(id))
                 .request(MediaType.APPLICATION_JSON_TYPE)
