@@ -12,6 +12,7 @@
     <modules>
         <module>domain</module>
         <module>webservices</module>
+        <module>view</module>
     </modules>
 
 
