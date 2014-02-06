@@ -11,7 +11,7 @@ import java.util.Map;
 @Produces("application/json")
 public class BookResource {
 
-    public static final long BOOK_DELAY = 2000L;
+    public static final long BOOK_DELAY = 0;
 
     public static final Map<Long, Book> BOOKS = new HashMap<Long, Book>() {
         {

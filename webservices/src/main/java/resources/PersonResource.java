@@ -10,7 +10,7 @@ import java.util.Map;
 @Produces("application/json")
 public class PersonResource {
 
-    public static final long PERSON_DELAY = 1000L;
+    public static final long PERSON_DELAY = 0;
 
     public static final Map<Long, Person> PEOPLE = new HashMap<Long, Person>() {
         {

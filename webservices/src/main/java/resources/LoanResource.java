@@ -9,7 +9,7 @@ import java.util.*;
 @Produces("application/json")
 public class LoanResource {
 
-    public static final long LOAN_DELAY = 1000L;
+    public static final long LOAN_DELAY = 0;
 
     public static final Map<Long, Collection<Loan>> LOANS = new HashMap<Long, Collection<Loan>>() {
         {
