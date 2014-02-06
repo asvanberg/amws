@@ -17,5 +17,6 @@ public class Services {
         Server server = serverFactory.create();
         System.in.read();
         server.destroy();
+        System.exit(0);
     }
 }
