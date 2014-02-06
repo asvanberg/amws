@@ -20,17 +20,13 @@ public class BookDetailsService {
     }
 
     public Future<BookDetails> getDetails(long bookId) {
-        long start = System.nanoTime();
         CompletableFuture<List<LoanDetails>> loanDetails = CompletableFuture.supplyAsync(() -> loanService.get(bookId))
                 .thenApply(loans -> loans
                         .parallelStream()
                         .map(loan -> new LoanDetails(loan, personService.get(loan.getPersonId())))
                         .collect(Collectors.toList())
                 );
-        CompletableFuture<BookDetails> bookDetails = CompletableFuture.supplyAsync(() -> bookService.get(bookId))
+        return CompletableFuture.supplyAsync(() -> bookService.get(bookId))
                 .thenCombine(loanDetails, BookDetails::new);
-        long end = System.nanoTime();
-        System.out.printf("Futures: %s%n", (end - start) / 1e9);
-        return bookDetails;
     }
 }

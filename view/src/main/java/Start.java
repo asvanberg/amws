@@ -11,6 +11,11 @@ public class Start {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         BookDetailsService bookDetailsService = new BookDetailsService(new BookService(), new PersonService(), new LoanService());
 
+        System.out.println("Doing it once first to load all the classes");
+        bookDetailsService.getDetails(1L).get();
+
+        System.out.println("Doing it for real");
+
         long start = System.nanoTime();
         Future<BookDetails> details = bookDetailsService.getDetails(1L);
         BookDetails bookDetails = details.get();
